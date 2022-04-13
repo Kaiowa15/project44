@@ -6,7 +6,7 @@ var playerHitBox
 var gameOver, restart
 var gameOverImg, restartImg
 var gameState = "play"
-
+var score = 0
 
 
 function preload(){
@@ -120,8 +120,8 @@ function draw() {
   }
 
 
-  
-  drawSprites(); 
+  drawSprites();
+  Score() 
 }
 
 function bulletGroup() {
@@ -150,6 +150,22 @@ function reset(){
   restart.visible = false;
   gameOver.visible = false;
  
-  //score = 0  
+  score = 0  
  
+}
+
+function Score () {
+  if (frameCount % 60 === 0 && gameState === "play") {
+  score += 1
+
+
+  }
+
+  
+  textFont("algerian"); 
+  fill("yellow");
+  textSize(20);
+  text("score: "+score,10,30 );
+
+
 }
