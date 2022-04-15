@@ -5,6 +5,7 @@ var bullet,bullet1,bulletImg,bulletGrop
 var playerHitBox
 var gameOver, restart
 var gameOverImg, restartImg
+var explosionsound
 var gameState = "play"
 var score = 0
 
@@ -16,6 +17,9 @@ function preload(){
   bulletImg = loadImage("./assets/bullet.png")
   gameOverImg = loadImage("./assets/gameOver.png")
   restartImg = loadImage("./assets/restart.png")
+
+  explosionsound = loadSound("./assets/bbc_heavy-expl_07037330.mp3")
+
 }
 
 function setup(){
@@ -90,6 +94,8 @@ function draw() {
 
    if(playerHitBox.isTouching(bulletGrop)){
     gameState = "end"
+
+    explosionsound.play()
 
    }
    
